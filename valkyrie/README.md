@@ -1,9 +1,3 @@
-<p align="left">
-<img src="https://s3.amazonaws.com/valkyrielogo/rblogo.png" width="200" height="200" />
-</p>
-
-. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
- 
 Valkyrie is a Simple Lightweight Infrastructure Automation tool.  It's a collection of tools that allow an analyzing engine (ELK, Splunk, etc) to take action on remote systems
 (or on your own, if you're into that kinda thing).  The idea is that something like Splunk can trigger a webhook (to the Dispatcher/Foreman Web API). It then triggers a worker
 (either via AWS SQS [dispatcher] or direct URL call [foreman]) that checks out a git repo with a list of tools, and runs the specific tool.
