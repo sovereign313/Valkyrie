@@ -1,0 +1,499 @@
+<html>
+<head>
+	<link rel="icon" type="image/png" href="images/rbicon.png"/>
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <link rel="stylesheet" href="css/jquery.toastmessage.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/jquery-confirm.min.css">
+	<link rel="stylesheet" href="css/valk.css">
+
+        <script src="js/jquery-1.12.4.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/jquery.toastmessage.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-confirm.min.js"></script>
+<!--
+        <script src="js/valk-obfuscated.js"></script>
+        <script src="js/valk-obfuscated.hosts.js"></script>
+        <script src="js/valk-obfuscated.aws.js"></script>
+        <script src="js/valk-obfuscated.logger.js"></script>
+        <script src="js/valk-obfuscated.alerter.js"></script>
+        <script src="js/valk-obfuscated.mailreader.js"></script>
+        <script src="js/valk-obfuscated.foreman.js"></script>
+        <script src="js/valk-obfuscated.launcher.js"></script>
+        <script src="js/valk-obfuscated.worker.js"></script>
+        <script src="js/valk-obfuscated.dispatcher.js"></script>
+        <script src="js/valk-obfuscated.sqsreader.js"></script>
+        <script src="js/valk-obfuscated.support.js"></script>
+-->
+	<script src="js/valk.js"></script>
+	<script src="js/valk.hosts.js"></script>
+	<script src="js/valk.aws.js"></script>
+	<script src="js/valk.logger.js"></script>
+	<script src="js/valk.alerter.js"></script>
+	<script src="js/valk.mailreader.js"></script>
+	<script src="js/valk.foreman.js"></script>
+	<script src="js/valk.launcher.js"></script>
+	<script src="js/valk.worker.js"></script>
+	<script src="js/valk.dispatcher.js"></script>
+	<script src="js/valk.sqsreader.js"></script>
+	<script src="js/valk.support.js"></script>
+
+	<title>Valk: Valkyrie Installer</title>
+</head>
+<body>
+<div id="header">
+	<div href="#" id="logodiv" data-toggle="tooltip" title="Valkyrie: Your Extra Admin - Installer" data-placement="right">
+		<img id="logo" src="images/rbicon.png" />
+		<img id="logotxt" src="images/logoword.png" />
+	</div>
+</div>
+
+<div id="licensediv">
+	<br/>
+	<table border=0>
+		<tr>
+			<td><img id="rbicon" style="width: 20px; height: 20px;" src="images/rbicon.png" />License Key:&nbsp;</td>
+			<td><input type="text" id="license" name="license" /></td>
+		</tr>
+		<tr>
+			<td><img id="rbiconx" style="width: 20px; height: 20px;" src="images/rbicon.png" />Business:&nbsp;</td>
+			<td><input type="text" id="business" name="business" /></td>
+		</tr>
+	</table>
+	<br/>
+</div>
+
+<div id="content">
+	<center>
+		<img id="mainimg" src="images/rblogo.png" />
+		<select id="showoptions" onchange="show_specific();">
+			<option value="all">Show All</option>
+			<option value="local">Show On-Prem Route</option>
+			<option value="aws">Show AWS Route</option>
+			<option value="localreq">Show On-Prem (required only)</option>
+			<option value="awsreq">Show AWS Route (required only)</option>
+		</select><br/>
+
+		<div id="mainlist" class="grid-container">
+			<div id="hostgrid" class="grid-item" data-toggle="tooltip" title="Configure Hosts" onmouseover="document.getElementById('hostlist').src='images/computer_on.png'" onmouseout="document.getElementById('hostlist').src='images/computer_off.png'"><img id="hostlist" src="images/computer_off.png" /></div>
+			<div id="foremangrid" class="grid-item" data-toggle="tooltip" title="Configure Foreman" onmouseover="document.getElementById('foreman').src='images/foreman_on.png'" onmouseout="document.getElementById('foreman').src='images/foreman_off.png'" ><img id="foreman" src="images/foreman_off.png" /></div>
+			<div id="launchergrid" class="grid-item" data-toggle="tooltip" title="Configure Launcher" onmouseover="document.getElementById('launcher').src='images/launcher_on.png'" onmouseout="document.getElementById('launcher').src='images/launcher_off.png'" ><img id="launcher" src="images/launcher_off.png" /></div>
+			<div id="workergrid" class="grid-item" data-toggle="tooltip" title="Configure Worker" onmouseover="document.getElementById('worker').src='images/worker_on.png'" onmouseout="document.getElementById('worker').src='images/worker_off.png'" ><img id="worker" src="images/worker_off.png" /></div>
+			<div id="loggergrid" class="grid-item" data-toggle="tooltip" title="Configure Logger" onmouseover="document.getElementById('logger').src='images/logger_on.png'" onmouseout="document.getElementById('logger').src='images/logger_off.png'" ><img id="logger" src="images/logger_off.png" /></div>
+			<div id="alertergrid" class="grid-item" data-toggle="tooltip" title="Configure Alerter" onmouseover="document.getElementById('alerter').src='images/alerter_on.png'" onmouseout="document.getElementById('alerter').src='images/alerter_off.png'"><img id="alerter" src="images/alerter_off.png" /></div>
+			<div id="awsgrid" class="grid-item" data-toggle="tooltip" title="Configure AWS. This is only required if you are using AWS (Dispatcher/SQSReader)" onmouseover="document.getElementById('aws').src='images/aws_on.png'" onmouseout="document.getElementById('aws').src='images/aws_off.png'" ><img id="aws" src="images/aws_off.png" /></div>
+			<div id="dispatchergrid" class="grid-item" data-toggle="tooltip" title="Configure Dispatcher (AWS)" onmouseover="document.getElementById('dispatcher').src='images/dispatcher_on.png'" onmouseout="document.getElementById('dispatcher').src='images/dispatcher_off.png'"><img id="dispatcher" src="images/dispatcher_off.png"  /></div>
+			<div id="sqsreadergrid" class="grid-item" data-toggle="tooltip" title="Configure SQSReader (AWS)" onmouseover="document.getElementById('sqsreader').src='images/sqsreader_on.png'" onmouseout="document.getElementById('sqsreader').src='images/sqsreader_off.png'" ><img id="sqsreader" src="images/sqsreader_off.png" /></div>
+			<div id="mailreadergrid" class="grid-item" data-toggle="tooltip" title="Configure EmailReader (Optional)" onmouseover="document.getElementById('emailreader').src='images/emailreader_on.png'" onmouseout="document.getElementById('emailreader').src='images/emailreader_off.png'" ><img id="emailreader" src="images/emailreader_off.png" /></div>
+			<div id="informationgrid" class="grid-item-additional" data-toggle="tooltip" title="Read Help/Information" onmouseover="document.getElementById('information').src='images/information_on.png'" onmouseout="document.getElementById('information').src='images/information_off.png'" ><img id="information" src="images/information_off.png" /></div>
+			<div id="supportgrid" class="grid-item-additional" data-toggle="tooltip" title="Contact Support" onmouseover="document.getElementById('support').src='images/support_on.png'" onmouseout="document.getElementById('support').src='images/support_off.png'" ><img id="support" src="images/support_off.png" /></div>
+		</div><br/>
+		<div id="bgroup">
+			<img id="spinner" src="images/spinner.gif" />
+			<div id="install" data-toggle="tooltip" title="Valkyrie is not configured.  Install is not available">
+				<div id="inner">Install</div>
+			</div>
+			<div id="generatemanifest" data-toggle="tooltip" title="Generate Command Line Installer File">
+				<div id="inner">Generate</div>
+			</div>
+			<div id="clearsetup" data-toggle="tooltip" title="Erase All The Setups!">
+				<div id="inner">Clear Setup</div>
+			</div>
+		</div>
+	</center>
+</div>
+<div id="hostsdiv">
+	<center>
+		<br/>
+		HostName/IP:&nbsp;&nbsp;<input type="text" id="hostname" placeholder="myprodserver.domain.tld" />&nbsp;&nbsp;<img id="addhostbtn" src="images/plus_off.png" data-toggle="tooltip" title="Add New Host" onmouseover="this.src='images/plus_on.png'" onmouseout="this.src='images/plus_off.png'" onclick="handle_add_host();" /><br/>
+		<hr/>
+		HostList:<br/>
+		<select id="listofhosts" name="listofhosts" size=7 style="width: 330px">
+		</select>
+		<br/><br/>
+		<div id="btnwrapper">
+			<div class="savebtn" onclick="save_hosts();" data-toggle="tooltip" title="Save These Hosts">Save</div>
+			<div class="cancelbtn" onclick="cancel_hosts();" data-toggle="tooltip" title="Cancel This Mess">Cancel</div>
+		</div>
+		<br/>
+	</center>
+</div>
+
+<div id="awsdiv">
+	<center>
+		<br/>
+		<table>
+			<tr>
+				<td>AWS Region:&nbsp;</td>
+				<td><input type="text" id="awsregion" name="awsregion" placeholder="us-east-1" /></td>
+			</tr>
+			<tr>
+				<td>AWS SQS Name:&nbsp;</td>
+				<td><input type="text" id="awssqsname" name="awssqsname" placeholder="valkyrie" /></td>
+			</tr>
+			<tr>
+				<td>AWS Access Key:&nbsp;</td>
+				<td><input type="text" id="awsaccesskey" name="awsaccesskey" placeholder="" /></td>
+			</tr>
+			<tr>
+				<td>AWS Secret Key:&nbsp;</td>
+				<td><input type="text" id="awssecretkey" name="awssecretkey" placeholder="" /></td>
+			</tr>
+			<tr>
+				<td>Queue Encryption:&nbsp;</td>
+				<td><input type="text" id="awsencryptionkey" name="awsencryptionkey" placeholder="LKHlhb899Y09olUi" /></td>
+			</tr>
+		</table>
+                <br/>
+		<div id="btnwrapper">
+			<div class="savebtn" onclick="save_aws();" data-toggle="tooltip" title="Save AWS Data">Save</div>
+			<div class="cancelbtn" onclick="cancel_aws();" data-toggle="tooltip" title="Cancel This Mess">Cancel</div>
+		</div>
+		<br/>
+	</center>
+</div>
+
+<div id="loggerdiv">
+	<center>
+		<br/>
+		<table>
+			<tr>
+				<td align="right"><input type="checkbox" id="eventstreamschk" name="eventstreamschk" />&nbsp;&nbsp;</td>
+				<td>Use Event Streams</td>
+			</tr>
+			<tr>
+				<td align="right"><input type="checkbox" id="secureloggingchk" name="secureloggingchk" />&nbsp;&nbsp;</td>
+				<td>Use Secure Logging</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</tr>
+			<tr>
+				<td>Host &amp; Port:</td>
+				<td><input type="text" id="eshostport" name="eshostport" placeholder="splunk.yourdomain.com:5020" disabled=disabled /></td>
+			</tr>
+			<tr>
+				<td>Secure Logging Key:&nbsp;</td>
+				<td><input type="text" id="logkey" name="logkey" placeholder="" disabled=disabled /></td>
+			</tr>
+			<tr>
+				<td>Log File Location:&nbsp;</td>
+				<td><input type="text" id="logfilelocation" name="logfilelocation" value="/tmp/valkyrie.log" /></td>
+			</tr>
+		</table>
+                <br/>
+                <select id="loggerhost" name="loggerhost" /></select>
+		<br/>
+		<div id="btnwrapper">
+			<div class="savebtn" onclick="save_logger();" data-toggle="tooltip" title="Save AWS Data">Save</div>
+			<div class="cancelbtn" onclick="cancel_logger();" data-toggle="tooltip" title="Cancel This Mess">Cancel</div>
+		</div>
+		<br/>
+	</center>
+</div>
+
+<div id="alerterdiv">
+	<center>
+		<br/>
+		<table>
+			<tr>
+				<td>Email Server:</td>
+				<td><input type="text" id="emailserver" name="emailserver" placeholder="smtp.yourdomain.com:25" /></td>
+			</tr>
+			<tr>
+				<td>From Address:&nbsp;</td>
+				<td><input type="text" id="fromaddress" name="fromaddress" placeholder="valkyrie@yourdomain.com" /></td>
+			</tr>
+			<tr>
+				<td>Twilio Account:&nbsp;</td>
+				<td><input type="text" id="twilioaccount" name="twilioaccount" /></td>
+			</tr>
+			<tr>
+				<td>Twilio Token:&nbsp;</td>
+				<td><input type="text" id="twiliotoken" name="twiliotoken" /></td>
+			</tr>
+			<tr>
+				<td>Twilio Phone #:&nbsp;</td>
+				<td><input type="text" id="twiliophonenumber" name="twiliophonenumber" /></td>
+			</tr>
+		</table>
+                <br/>
+                <select id="alerterhost" name="alerterhost" /></select>
+		<br/>
+		<div id="awsconfigureddiv">AWS Already Configured!</div>
+		<div id="btnwrapper">
+			<div class="savebtn" onclick="save_alerter();" data-toggle="tooltip" title="Save Alerter Data">Save</div>
+			<div class="cancelbtn" onclick="cancel_alerter();" data-toggle="tooltip" title="Cancel This Mess">Cancel</div>
+		</div>
+		<br/>
+	</center>
+</div>
+
+<div id="mailreaderdiv">
+	<center>
+		<br/>
+		<table>
+			<tr>
+				<td align="right"><input type="checkbox" id="duplicationprotectionchk" name="duplicationprotectionchk" />&nbsp;&nbsp;</td>
+				<td>Use Duplication Protection</td>
+			</tr>
+			<tr>
+				<td align="right"><input type="checkbox" id="usetlschk" name="useltschk" />&nbsp;&nbsp;</td>
+				<td>Use TLS</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</td>
+			<tr>
+				<td>Mail Protocol:&nbsp;</td>
+				<td>
+					<select id="mailprotocol" name="mailprotocol">
+						<option value="pop">POP</option>
+						<option value="imap" selected=selected>IMAP</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</td>
+			<tr>
+				<td>Protect Time (Secs):</td>
+				<td><input type="text" id="protecttime" name="protecttime" placeholder="30" disabled=disabled /></td>
+			</tr>
+			<tr>
+				<td>Sleep Timeout (Mins):</td>
+				<td><input type="text" id="sleeptimeout" name="sleeptimeout" placeholder="30" /></td>
+			</tr>
+			<tr>
+				<td>Mail Server:&nbsp;</td>
+				<td><input type="text" id="mailserver" name="mailserver" placeholder="pop3.yourserver.tld:143" /></td>
+			</tr>
+			<tr>
+				<td>Mail User:&nbsp;</td>
+				<td><input type="text" id="mailuser" name="mailuser" /></td>
+			</tr>
+			<tr>
+				<td>Mail Password:&nbsp;</td>
+				<td><input type="text" id="mailpassword" name="mailpassword" /></td>
+			</tr>
+			<tr>
+				<td>Mail Subject Trigger:&nbsp;</td>
+				<td><input type="text" id="mailsubjecttrigger" name="mailsubjectrigger" placeholder="Valkyrie_Trigger" /></td>
+			</tr>
+		</table>
+                <br/>
+                <select id="mailreaderhost" name="mailreaderhost" /></select>
+		<br/>
+		<div id="btnwrapper">
+			<div class="savebtn" onclick="save_mailreader();" data-toggle="tooltip" title="Save Mail Reader Data">Save</div>
+			<div class="cancelbtn" onclick="cancel_mailreader();" data-toggle="tooltip" title="Cancel This Mess">Cancel</div>
+		</div>
+		<br/>
+	</center>
+</div>
+
+<div id="foremandiv">
+	<center>
+		<br/>
+		<table>
+			<tr>
+				<td align="right"><input type="checkbox" id="foremandupchk" name="foremandupchk" checked=checked />&nbsp;&nbsp;</td>
+				<td>Use Duplication Protection</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</td>
+			<tr>
+				<td>Protect Time (Secs):</td>
+				<td><input type="text" id="foremanprotecttime" name="foremanprotecttime" value="30" /></td>
+			</tr>
+		</table>
+		<br/>
+		<select id="foremanhost" name="foremanhost" /></select>
+		<br/>
+		<div id="btnwrapper">
+			<div class="savebtn" onclick="save_foreman();" data-toggle="tooltip" title="Save Foreman Data">Save</div>
+			<div class="cancelbtn" onclick="cancel_foreman();" data-toggle="tooltip" title="Cancel This Mess">Cancel</div>
+		</div>
+		<br/>
+	</center>
+</div>
+
+<div id="launcherdiv">
+	<center>
+		<br/>
+		<table>
+			<tr>
+				<td>Default Image:&nbsp;</td>
+				<td><input type="text" id="launcherdefaultimage" name="launcherdefaultimage" value="worker" /></td>
+			</tr>
+		</table>
+		<br/>
+	</center>
+		<select id="launcherhost" name="launcherhost" size="7" style="width: 200px; margin-left: 20px;" /></select>
+		<select id="launcherworkers" name="launcherworkers" size="7" style="width: 200px; margin-left: 20px;" /></select>
+		<br/>
+	<center>
+		<br/>
+		<div id="btnwrapper">
+			<div class="savebtn" onclick="save_launcher();" data-toggle="tooltip" title="Save Launcher Data">Save</div>
+			<div class="cancelbtn" onclick="cancel_launcher();" data-toggle="tooltip" title="Cancel This Mess">Cancel</div>
+		</div>
+		<br/>
+	</center>
+</div>
+
+<div id="workerdiv">
+	<center>
+		<br/>
+		<table>
+			<tr>
+				<td>External Path</td>
+				<td><input type="text" id="workerexternalpath" name="workerexternalpath" value="/tmp/valhalla" /></td>
+			</tr>
+			<tr>
+				<td>Git Repo URL</td>
+				<td><input type="text" id="workergitrepourl" name="workergitrepourl" value="https://github.com/sovereign313/valhalla.git" /></td>
+			</tr>
+			<tr>
+				<td>SSH User</td>
+				<td><input type="text" id="workersshuser" name="workersshuser" value="root" /></td>
+			</tr>
+		</table>
+		<br/>
+		SSH Private Key<br/>
+		<textarea id="workerprivatekey" name="workerprivatekey" style="width: 60%; height: 150px;"></textarea>
+		<br/><br/>
+		SSH Public Key</br/>
+		<textarea id="workerpublickey" name="workerpublickey" style="width: 60%; height: 150px;"></textarea>
+                <br/>
+		<div id="btnwrapper">
+			<div class="savebtn" onclick="save_worker();" data-toggle="tooltip" title="Save Worker Data">Save</div>
+			<div class="cancelbtn" onclick="cancel_worker();" data-toggle="tooltip" title="Cancel This Mess">Cancel</div>
+		</div>
+		<br/>
+	</center>
+</div>
+
+<div id="dispatcherdiv">
+	<center>
+		<br/>
+		<table>
+			<tr>
+				<td align="right"><input type="checkbox" id="dispatcherdupchk" name="dispatcherdupchk" checked=checked />&nbsp;&nbsp;</td>
+				<td>Use Duplication Protection</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+			</td>
+			<tr>
+				<td>Protect Time (Secs):</td>
+				<td><input type="text" id="dispatcherprotecttime" name="dispatcherprotecttime" value="30" /></td>
+			</tr>
+		</table>
+		<br/>
+                <select id="dispatcherhost" name="dispatcherhost" /></select>
+                <br/>
+		<div id="awsconfigureddispatcherdiv">AWS Already Configured!</div>
+		<div id="btnwrapper">
+			<div class="savebtn" onclick="save_dispatcher();" data-toggle="tooltip" title="Save Dispatcher Data">Save</div>
+			<div class="cancelbtn" onclick="cancel_dispatcher();" data-toggle="tooltip" title="Cancel This Mess">Cancel</div>
+		</div>
+		<br/>
+	</center>
+</div>
+
+<div id="sqsreaderdiv">
+	<center>
+		<br/>
+		<table>
+			<tr>
+				<td>Sleep Timeout:&nbsp;</td>
+				<td><input type="text" id="sqsreadersleeptimeout" name="sqsreadersleeptimeout" value="30" /></td>
+			</tr>
+		</table>
+                <br/>
+                <select id="sqsreaderhost" name="sqsreaderhost" /></select>
+		<br/>
+		<div id="awsconfiguredsqsreaderdiv">AWS Already Configured!</div>
+		<div id="btnwrapper">
+			<div class="savebtn" onclick="save_sqsreader();" data-toggle="tooltip" title="Save SQSReader Data">Save</div>
+			<div class="cancelbtn" onclick="cancel_sqsreader();" data-toggle="tooltip" title="Cancel This Mess">Cancel</div>
+		</div>
+		<br/>
+	</center>
+</div>
+
+<!--
+<div id="infodiv">
+
+</div>
+-->
+<div id="supportdiv">
+	<center>
+		<br/>
+		<table>
+			<tr>
+				<td>First Name:&nbsp;</td>
+				<td><input type="text" id="firstname" name="firstname" /></td>
+			</tr>
+			<tr>
+				<td>Last Name:&nbsp;</td>
+				<td><input type="text" id="lastname" name="lastname" /></td>
+			</tr>
+			<tr>
+				<td>Phone Number:&nbsp;</td>
+				<td><input type="text" id="phonenumber" name="phonenumber" /></td>
+			</tr>
+			<tr>
+				<td>Email Address:&nbsp;</td>
+				<td><input type="text" id="emailaddress" name="emailaddress" /></td>
+			</tr>
+			<tr>
+				<td>Company:&nbsp;</td>
+				<td><input type="text" id="company" name="company" /></td>
+			</tr>
+		</table>
+		<br/>
+		Please Describe Your Issue<br/>
+		<textarea id="issue" name="issue" style="width: 60%; height: 150px;"></textarea>
+		<br/>
+		<div id="btnwrapper">
+			<div class="savebtn" onclick="contact_support();" data-toggle="tooltip" title="Contact Support!">Contact</div>
+			<div class="cancelbtn" onclick="cancel_support();" data-toggle="tooltip" title="Cancel This Mess">Cancel</div>
+		</div>
+		<hr/>
+	</center>
+	<div id="contactinfo" style="margin-left: 20px;">
+		Call us: +1.844.411.9756<br/>
+		Email us: <a href="mailto:support@valkyriesoftware.io">support@valkyriesoftware.io</a><br/><br/>
+	</div>
+</div>
+
+<div id="manifestdiv">
+	<center>
+		<textarea id="manifest" name="manifest" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; width: 500px; height: 500px;" ></textarea>
+		<div id="btnwrapper">
+			<div class="savebtn" onclick="save_manifest();" data-toggle="tooltip" title="Save Manifest!">Save</div>
+			<div class="cancelbtn" onclick="cancel_manifest();" data-toggle="tooltip" title="Cancel This Mess">Close</div>
+		</div>
+	</center>
+</div>
+
+<div id="updatelogdiv">
+	<center>
+		<textarea id="logdata" name="logdata" style="margin-top: 10px; margin-left: 10px; margin-right: 10px; margin-top: 25px; width: 400px; height: 500px;" ></textarea>
+		<div id="btnwrapper">
+			<div class="closebtn" onclick="cancel_logdiv();" data-toggle="tooltip" title="Close The Log Window">Close</div>
+		</div>
+	</center>
+</div>
+
+</body>
+</html>

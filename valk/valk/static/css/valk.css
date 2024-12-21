@@ -1,0 +1,459 @@
+	body {
+		/*background-color: #000000;*/
+		margin-top: 0px;
+		margin-left: 0px;
+		margin-right: 0px;
+		background-repeat: no-repeat;
+		background-size: 20%;
+		background-attachment: fixed;
+		background-position: center;
+	}
+
+	#logodiv {
+		float: left;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 10px;
+		display: inline-block;
+	}
+
+	#logo {
+		width: 30px;
+		height: 30px;
+		cursor: pointer;
+	}
+
+	#logotxt {
+		width: 150px;
+			
+	}
+
+	#titlediv {
+		float: center;
+	}
+
+	#header {
+		margin-bottom: 20px; 
+		text-align: center;
+		color: #000000;
+		overflow: hidden;
+	}
+	
+	#hostlist {
+		width: 100px;
+		height: 100px;
+		cursor: pointer;
+	}
+
+	#alerter {
+		width: 100px;
+		height: 100px;
+		cursor: pointer;
+	}
+
+	#aws {
+		width: 100px;
+		height: 100px;
+		cursor: pointer;
+	}
+
+	#logger {
+		width: 100px;
+		height: 100px;
+		cursor: pointer;
+	}
+
+	#emailreader {
+		width: 100px;
+		height: 100px;
+		cursor: pointer;
+	}
+
+	#foreman {
+		width: 100px;
+		height: 100px;
+		cursor: pointer;
+	}
+
+	#launcher {
+		width: 100px;
+		height: 100px;
+		cursor: pointer;
+	}
+
+	#worker {
+		width: 100px;
+		height: 100px;
+		cursor: pointer;
+	}
+
+	#dispatcher {
+		width: 100px;
+		height: 100px;
+		cursor: pointer;
+	}
+
+	#sqsreader {
+		width: 100px;
+		height: 100px;
+		cursor: pointer;
+	}
+
+	#information {
+		width: 100px;
+		height: 100px;
+		cursor: pointer;
+	}
+
+	#support {
+		width: 100px;
+		height: 100px;
+		cursor: pointer;
+	}
+
+	#addhostbtn {
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+	}
+
+	#mappingbtn {
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+	}
+
+	#install {
+		cursor: pointer;
+		width: 140px;
+		height: 50px;
+		cursor: pointer;
+		background-color: #A9A9A9;
+		border: 1px solid #A9A9A9;
+		margin-top: 5px;
+		margin-right: 5px;
+		display: flex;
+		align-items: center;
+	}
+
+	#spinner {
+		width: 140px;
+		height: 50px;
+		margin-top: 5px;
+		margin-right: 5px;
+		display: none; 
+	}
+
+	#updatelogdiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 500px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#generatemanifest {
+		cursor: pointer;
+		width: 140px;
+		height: 50px;
+		cursor: pointer;
+		background-color: #A9A9A9;
+		border: 1px solid #A9A9A9;
+		margin-top: 5px;
+		margin-right: 5px;
+		display: flex;
+		align-items: center;
+	}
+
+	#clearsetup {
+		cursor: pointer;
+		width: 140px;
+		height: 50px;
+		cursor: pointer;
+		background-color: #A9A9A9;
+		border: 1px solid #A9A9A9;
+		margin-top: 5px;
+		margin-right: 5px;
+		display: flex;
+		align-items: center;
+	}
+
+	#inner {
+		width: 100%;
+	}
+
+	#hostsdiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 500px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#awsdiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 500px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#loggerdiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 500px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#alerterdiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 500px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#mailreaderdiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 500px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#foremandiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 500px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#launcherdiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 500px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#workerdiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 500px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#dispatcherdiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 500px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#sqsreaderdiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 500px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#infodiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 500px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#supportdiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 500px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#manifestdiv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 200px;
+		left: 300px;
+		border: 1px solid grey; 
+		width: 600px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+
+	#awsconfigureddiv {
+		display: none;
+		color: #FFFF00;
+	}
+
+	#awsconfigureddispatcherdiv {
+		display: none;
+		color: #FFFF00;
+	}
+
+	#awsconfiguredsqsreaderdiv {
+		display: none;
+		color: #FFFF00;
+	}
+
+	#bgroup {
+		cursor: pointer;
+		width: 400px;
+		height: 60px;
+		cursor: pointer;
+		margin-top: 5px;
+		display: flex;
+		align-items: center;
+	}
+
+	#btnwrapper {
+		cursor: pointer;
+		width: 300px;
+		height: 50px;
+		cursor: pointer;
+		margin-top: 5px;
+		display: flex;
+		align-items: center;
+	}
+
+	#clearsetup:hover {
+		border: 1px dotted grey;
+		background: linear-gradient(325deg, #ff0000, #ffA0A0);
+		cursor: pointer;
+	}
+
+	#licensediv {
+		position: absolute; 
+		cursor: pointer; 
+		top: 50px;
+		left: 10px;
+		border: 1px solid grey; 
+		width: 375px; 
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+		padding-left: 20px;
+	}
+
+	.active {
+
+	}
+	
+	.active:hover {
+		border: 1px dotted grey;
+		background: linear-gradient(325deg, #00ff00, #A0ffA0);
+		cursor: pointer;
+	}
+
+	.savebtn {
+		width: 45%;
+		margin-right: 10px;
+		border: 1px solid #A9A9A9;
+		background: linear-gradient(90deg, #00ff00, #A0ffA0);
+	}
+
+	.cancelbtn {
+		width: 45%;
+		border: 1px solid #A9A9A9;
+		background: linear-gradient(90deg, #ff0000, #ffA0A0);
+	}
+
+	.closebtn {
+		width: 100%;
+		border: 1px solid #A9A9A9;
+		background: linear-gradient(90deg, #ff0000, #ffA0A0);
+	}
+
+	.grid-container {
+		display: inline-grid;
+		grid-template-columns: auto auto auto;
+		padding: 10px;
+	}
+
+	.grid-item {
+		border: 1px solid grey;
+		padding: 20px;
+		text-align: center;
+		margin-right: 10px;
+		margin-top: 10px;
+	}
+
+	.grid-item-complete {
+		border: 1px dotted grey;
+		background: linear-gradient(90deg, #00ff00, #A0ffA0);
+		cursor: pointer;
+	}
+
+	.grid-item-additional {
+		border: 1px solid grey;
+		padding: 20px;
+		text-align: center;
+		margin-right: 10px;
+		margin-top: 10px;
+		background: linear-gradient(90deg, #82CAFA, #ADDFFF); 
+	}
+
+	.grid-item-additional:hover {
+		border: 1px dotted grey;
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		cursor: pointer;
+	}
+
+	.grid-item-goodenough {
+		border: 1px dotted grey;
+		background: linear-gradient(90deg, #ffff00, #ffFFE0);
+		cursor: pointer;
+	}
+
+	.grid-item:hover {
+		border: 1px dotted grey;
+		background: linear-gradient(325deg, #696969, #d3d3d3);
+		cursor: pointer;
+	}
+

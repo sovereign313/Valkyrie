@@ -1,0 +1,15 @@
+--2018-09-04 19:43:33--  https://www.google.com/imgres?imgurl=https%3A%2F%2Floading.io%2Fspinners%2Ffidget-spinner%2Flg.fidget-spinner.gif
+Resolving www.google.com... 172.217.0.4, 2607:f8b0:4009:80a::2004
+Connecting to www.google.com|172.217.0.4|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://www.google.com/imghp [following]
+--2018-09-04 19:43:33--  https://www.google.com/imghp
+Reusing existing connection to www.google.com:443.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘imgres?imgurl=https%3A%2F%2Floading.io%2Fspinners%2Ffidget-spinner%2Flg.fidget-spinner.gif’
+
+                          imgres?imgurl=https%3A%2F%     [<=>                                                                                                                   ]       0  --.-KB/s               imgres?imgurl=https%3A%2F%2Floading.io%2Fspinners%2F     [ <=>                                                                                                                  ]   4.75K  --.-KB/s    in 0.001s  
+
+2018-09-04 19:43:33 (3.92 MB/s) - ‘imgres?imgurl=https%3A%2F%2Floading.io%2Fspinners%2Ffidget-spinner%2Flg.fidget-spinner.gif’ saved [11316]
+
